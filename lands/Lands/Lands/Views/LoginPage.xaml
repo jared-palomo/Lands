@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Login"
+             BackgroundImageSource="degradado_azul"
+             x:Class="Lands.Views.LoginPage">
+    <ContentPage.Content>
+        <StackLayout Padding="20" Spacing="10">
+            
+            <Label Text="Lands"
+                   TextColor="White"
+                   FontSize="Header"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Center" />
+
+            <Image Source="logo_onu"
+                   WidthRequest="200" />
+
+            <Grid Margin="0, 20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" 
+                       Text="E-Mail"
+                       FontSize="Medium"
+                       TextColor="White"/>
+
+                <Entry Grid.Row="0" Grid.Column="1"
+                       Keyboard="Email"
+                       TextColor="WhiteSmoke"
+                       Placeholder="Ingresa tu Email..." />
+
+                <Label Grid.Row="1" Grid.Column="0"
+                       Text="Password"
+                       FontSize="Medium"
+                       TextColor="White"
+                       VerticalOptions="Center" />
+
+                <Entry Grid.Row="1" Grid.Column="1" 
+                       TextColor="WhiteSmoke"
+                       Placeholder="Ingresa tu Password..."
+                       IsPassword="True" />
+
+            </Grid>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Recordarme en este dispositivo"
+                       FontSize="Medium"
+                       TextColor="White"
+                       VerticalOptions="Center"
+                       HorizontalOptions="StartAndExpand"/>
+                
+                <Switch HorizontalOptions="End" />
+            </StackLayout>
+            
+            
+            <ActivityIndicator>
+                
+            </ActivityIndicator>
+
+            <StackLayout Margin="40, 0">
+                
+                <Button Text="Login"
+                    BackgroundColor="Navy"
+                    TextColor="White"
+                    FontSize="Large"
+                    BorderRadius="23"
+                    HeightRequest="46" />
+
+                <Button Text="Registrarse"
+                    BackgroundColor="Purple"
+                    TextColor="White"
+                    FontSize="Large"
+                    BorderRadius="23"
+                    HeightRequest="46" />
+                
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal" 
+                         HorizontalOptions="CenterAndExpand" 
+                         Margin="20">
+                
+                <Image Source="face_logo" 
+                       WidthRequest="70" />
+                
+                <Image Source="google_logo"
+                       WidthRequest="70" />
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

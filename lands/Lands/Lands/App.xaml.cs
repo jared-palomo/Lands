@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lands.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -6,13 +7,16 @@ namespace Lands
 {
     public partial class App : Application
     {
+        #region Constructors
         public App()
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage (new LoginPage() );
         }
+        #endregion
 
+        #region Methods
         protected override void OnStart()
         {
         }
@@ -24,5 +28,6 @@ namespace Lands
         protected override void OnResume()
         {
         }
+        #endregion
     }
 }
