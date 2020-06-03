@@ -85,7 +85,8 @@
                             BorderRadius="23"
                             HeightRequest="46"
                             HorizontalOptions="FillAndExpand"
-                            Command="{Binding LoginCommand}"/>
+                            Command="{Binding LoginCommand}"
+                            IsEnabled="{Binding IsEnabled, Mode=TwoWay} "/>
 
                     <Button Text="Registrarse"
                             BackgroundColor="Purple"
@@ -94,7 +95,8 @@
                             BorderRadius="23"
                             HeightRequest="46"
                             HorizontalOptions="FillAndExpand"
-                            Command="{Binding RegisterCommand}"/>
+                            Command="{Binding RegisterCommand}"
+                            IsEnabled="{Binding IsEnabled, Mode=TwoWay}" />
 
                 </StackLayout>
 
