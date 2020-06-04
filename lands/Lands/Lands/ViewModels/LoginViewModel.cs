@@ -1,9 +1,11 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using Lands.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Lands.ViewModels
@@ -11,13 +13,17 @@ namespace Lands.ViewModels
     public class LoginViewModel : BaseViewModel
     {
         #region Attributes
+        private string email;
         private string password;
         private bool isRunning;
         private bool isEnabled;
         #endregion
 
         #region Properties
-        public string Email { get; set; }
+        public string Email {
+            get { return this.email; }
+            set { SetValue(ref this.email, value); }
+        }
 
         public string Password {
             get { return this.password; }
@@ -76,9 +82,11 @@ namespace Lands.ViewModels
             this.IsRunning = false;
             this.IsEnabled = true;
 
-            await Application.Current.MainPage.DisplayAlert("EXCELENTE",
-                                   "Fuck Yeah!",
-                                   "OK");
+            this.Email = String.Empty;
+            this.Password = String.Empty;
+
+            MainViewModel.getInstance().Lands = new LandsViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync( new LandsPage() );
         }
 
         public ICommand RegisterCommand { get; }
@@ -88,8 +96,14 @@ namespace Lands.ViewModels
         public LoginViewModel()
         {
             this.IsRemember = true;
-            this.IsRunning = false;
+            //this.IsRunning = false;
             this.IsEnabled = true;
+
+            //Temporal
+            this.Email = "jared@ex.com";
+            this.Password = "1234";
+
+            //http://restcountries.eu/rest/v2/all
         }
         #endregion
     }
