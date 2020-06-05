@@ -106,10 +106,18 @@
                              Margin="20">
 
                     <Image Source="face_logo" 
-                           WidthRequest="70" />
+                           WidthRequest="70">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding loginFacebookCommand}" />
+                        </Image.GestureRecognizers>
+                    </Image>
 
                     <Image Source="google_logo"
-                           WidthRequest="70" />
+                           WidthRequest="70">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding loginGoogleCommand}" />
+                        </Image.GestureRecognizers>
+                    </Image>
                 </StackLayout>
 
             </StackLayout>
