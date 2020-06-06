@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             Title="Land"
+             Title="General Information"
+             IconImageSource="ic_info"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              x:Class="Lands.Views.LandPage">
     <ContentPage.Content>
