@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using Lands.Helpers;
+using Lands.Models;
 
 namespace Lands.ViewModels
 {
@@ -54,17 +56,17 @@ namespace Lands.ViewModels
         {
             if (String.IsNullOrEmpty(this.Email))
             {
-                await Application.Current.MainPage.DisplayAlert("Error",
-                                   "Debes ingresar tu Email",
-                                   "OK");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error,
+                                   Languages.EmailValidation,
+                                   Languages.Accept);
                 return;
             }
 
             if (String.IsNullOrEmpty(this.Password))
             {
-                await Application.Current.MainPage.DisplayAlert("Error",
-                                   "Debes ingresar tu Password",
-                                   "OK");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error,
+                                   Languages.PasswordValidation,
+                                   Languages.Accept);
                 return;
             }
 
@@ -77,9 +79,9 @@ namespace Lands.ViewModels
                 this.IsRunning = false;
                 this.IsEnabled = true;
 
-                await Application.Current.MainPage.DisplayAlert("Error",
+                await Application.Current.MainPage.DisplayAlert(Languages.Error,
                                    connection.Message,
-                                   "OK");
+                                   Languages.Accept);
                 return;
             }
 
@@ -90,9 +92,9 @@ namespace Lands.ViewModels
                 this.IsRunning = false;
                 this.IsEnabled = true;
 
-                await Application.Current.MainPage.DisplayAlert("Error",
-                                   "Algo ocurrió, porfavor intentalo despues.",
-                                   "OK");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error,
+                                   Languages.SomethingWrong,
+                                   Languages.Accept);
                 return;
             }
 
@@ -101,9 +103,9 @@ namespace Lands.ViewModels
                 this.IsRunning = false;
                 this.IsEnabled = true;
 
-                await Application.Current.MainPage.DisplayAlert("Error",
+                await Application.Current.MainPage.DisplayAlert(Languages.Error,
                                    token.ErrorDescription,
-                                   "OK");
+                                   Languages.Accept);
 
                 this.Password = string.Empty;
                 return;
@@ -131,7 +133,6 @@ namespace Lands.ViewModels
             this.apiService = new ApiService();
             this.IsRemember = true;
             this.IsEnabled = true;
-
         }
         #endregion
     }

@@ -4,8 +4,9 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             Title="Translations"
+             Title="{i18n:Translate Translations}"
              IconImageSource="ic_g_translate"
+             xmlns:i18n="clr-namespace:Lands.Helpers"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              x:Class="Lands.Views.TranslationsPage">
     <ContentPage.Content>
@@ -27,7 +28,7 @@
                 <Label
                     Grid.Column="0"
                     Grid.Row="0"
-                    Text="German:"
+                    Text="{i18n:Translate German}"
                     TextColor="Black">
                 </Label>
                 <Label
@@ -40,7 +41,7 @@
                 <Label
                     Grid.Column="0"
                     Grid.Row="1"
-                    Text="Spanish:"
+                    Text="{i18n:Translate Spanish}"
                     TextColor="Black">
                 </Label>
                 <Label
@@ -53,7 +54,7 @@
                 <Label
                     Grid.Column="0"
                     Grid.Row="2"
-                    Text="French:"
+                    Text="{i18n:Translate French}"
                     TextColor="Black">
                 </Label>
                 <Label
@@ -66,7 +67,7 @@
                 <Label
                     Grid.Column="0"
                     Grid.Row="3"
-                    Text="Japanese:"
+                    Text="{i18n:Translate Japanese}"
                     TextColor="Black">
                 </Label>
                 <Label
@@ -79,7 +80,7 @@
                 <Label
                     Grid.Column="0"
                     Grid.Row="4"
-                    Text="Italian:"
+                    Text="{i18n:Translate Italian}"
                     TextColor="Black">
                 </Label>
                 <Label
@@ -92,7 +93,7 @@
                 <Label
                     Grid.Column="0"
                     Grid.Row="5"
-                    Text="Brazilian:"
+                    Text="{i18n:Translate Brazilian}"
                     TextColor="Black">
                 </Label>
                 <Label
@@ -105,7 +106,7 @@
                 <Label
                     Grid.Column="0"
                     Grid.Row="6"
-                    Text="Portuguese:"
+                    Text="{i18n:Translate Portuguese}"
                     TextColor="Black">
                 </Label>
                 <Label
@@ -118,7 +119,7 @@
                 <Label
                     Grid.Column="0"
                     Grid.Row="7"
-                    Text="Dutch:"
+                    Text="{i18n:Translate Dutch}"
                     TextColor="Black">
                 </Label>
                 <Label
@@ -131,7 +132,7 @@
                 <Label
                     Grid.Column="0"
                     Grid.Row="8"
-                    Text="Croatian:"
+                    Text="{i18n:Translate Croatian}"
                     TextColor="Black">
                 </Label>
                 <Label
@@ -144,7 +145,7 @@
                 <Label
                     Grid.Column="0"
                     Grid.Row="9"
-                    Text="Persian:"
+                    Text="{i18n:Translate Persian}"
                     TextColor="Black">
                 </Label>
                 <Label

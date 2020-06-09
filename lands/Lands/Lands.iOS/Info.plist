@@ -32,6 +32,15 @@
     <string>LaunchScreen</string>
     <key>CFBundleName</key>
     <string>Lands</string>
+
+    <key>CFBundleLocalizations</key>
+	<array>
+		<string>es</string>
+		<string>pt</string>
+	</array>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+
     <key>XSAppIconAssets</key>
     <string>Assets.xcassets/AppIcon.appiconset</string>
 </dict>

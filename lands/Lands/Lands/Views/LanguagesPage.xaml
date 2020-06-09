@@ -4,8 +4,9 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             Title="Languages"
+             Title="{i18n:Translate MyLanguages}"
              IconImageSource="ic_people"
+             xmlns:i18n="clr-namespace:Lands.Helpers"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              x:Class="Lands.Views.LanguagesPage">
     <ContentPage.Content>
