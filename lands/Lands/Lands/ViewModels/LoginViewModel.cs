@@ -83,7 +83,7 @@ namespace Lands.ViewModels
                 return;
             }
 
-            var token = await this.apiService.GetToken("http://localhost:9095/", this.Email,this.Password);
+            var token = await this.apiService.GetToken("http://APILandsNet.somee.com/", this.Email,this.Password);
 
             if (token==null)
             {
