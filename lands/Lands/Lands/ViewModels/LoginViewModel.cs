@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using Lands.Services;
 using Lands.Views;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,10 @@ namespace Lands.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
+        #region Services
+        private ApiService apiService;
+        #endregion
+
         #region Attributes
         private string email;
         private string password;
@@ -66,27 +71,55 @@ namespace Lands.ViewModels
             this.IsRunning = true;
             this.IsEnabled = false;
 
-            if (this.Email != "jared@ex.com" || this.Password != "1234")
+            var connection = await this.apiService.CheckConnection();
+            if (!connection.IsSuccess)
             {
                 this.IsRunning = false;
                 this.IsEnabled = true;
 
                 await Application.Current.MainPage.DisplayAlert("Error",
-                                   "Email o Password incorrecta",
+                                   connection.Message,
                                    "OK");
-
-                this.Password = String.Empty;
                 return;
             }
 
+            var token = await this.apiService.GetToken("http://localhost:9095/", this.Email,this.Password);
+
+            if (token==null)
+            {
+                this.IsRunning = false;
+                this.IsEnabled = true;
+
+                await Application.Current.MainPage.DisplayAlert("Error",
+                                   "Algo ocurrió, porfavor intentalo despues.",
+                                   "OK");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(token.AccessToken))
+            {
+                this.IsRunning = false;
+                this.IsEnabled = true;
+
+                await Application.Current.MainPage.DisplayAlert("Error",
+                                   token.ErrorDescription,
+                                   "OK");
+
+                this.Password = string.Empty;
+                return;
+            }
+
+            var mainViewModel = MainViewModel.getInstance();
+            mainViewModel.Token = token;
+            
+            mainViewModel.Lands = new LandsViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
+            
             this.IsRunning = false;
             this.IsEnabled = true;
 
             this.Email = String.Empty;
             this.Password = String.Empty;
-
-            MainViewModel.getInstance().Lands = new LandsViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync( new LandsPage() );
         }
 
         public ICommand RegisterCommand { get; }
@@ -95,15 +128,10 @@ namespace Lands.ViewModels
         #region Constructors
         public LoginViewModel()
         {
+            this.apiService = new ApiService();
             this.IsRemember = true;
-            //this.IsRunning = false;
             this.IsEnabled = true;
 
-            //Temporal
-            this.Email = "jared@ex.com";
-            this.Password = "1234";
-
-            //http://restcountries.eu/rest/v2/all
         }
         #endregion
     }
