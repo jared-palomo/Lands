@@ -11,7 +11,7 @@
              x:Class="Lands.Views.LoginPage">
     <ContentPage.Content>
         <ScrollView BindingContext="{Binding Login}">
-            <StackLayout Padding="5">
+            <StackLayout Padding="5, 20, 5, 5">
 
                 <Image Source="logo_onu"
                    WidthRequest="200" />
