@@ -114,9 +114,13 @@ namespace Lands.ViewModels
             var mainViewModel = MainViewModel.getInstance();
             mainViewModel.Token = token.AccessToken;
             mainViewModel.TokenType = token.TokenType;
-            //Persistencia
-            Settings.Token = token.AccessToken;
-            Settings.TokenType = token.TokenType;
+
+            if (this.IsRemember)
+            {
+                //Persistencia
+                Settings.Token = token.AccessToken;
+                Settings.TokenType = token.TokenType;
+            }
 
             mainViewModel.Lands = new LandsViewModel();
 

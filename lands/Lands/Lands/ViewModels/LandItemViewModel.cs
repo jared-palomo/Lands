@@ -20,7 +20,8 @@ namespace Lands.ViewModels
         private async void SelectLand()
         {
             MainViewModel.getInstance().Land = new LandViewModel( this );
-            await Application.Current.MainPage.Navigation.PushAsync( new LandTabbedPage() );
+            await App.Navigator.PushAsync( new LandTabbedPage() );
+            //await Application.Current.MainPage.Navigation.PushAsync( new LandTabbedPage() );
         }
         #endregion
     }
