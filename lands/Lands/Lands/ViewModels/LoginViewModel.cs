@@ -52,6 +52,10 @@ namespace Lands.ViewModels
         #region Commands
         public ICommand LoginCommand { get { return new RelayCommand(Login); } }
 
+        public ICommand RegisterCommand { get { return new RelayCommand(Register); } }
+        #endregion
+
+        #region Methods
         private async void Login()
         {
             if (String.IsNullOrEmpty(this.Email))
@@ -85,9 +89,10 @@ namespace Lands.ViewModels
                 return;
             }
 
-            var token = await this.apiService.GetToken("http://APILandsNet.somee.com/", this.Email,this.Password);
+            var apiSecurity = Application.Current.Resources["APISecurity"].ToString();
+            var token = await this.apiService.GetToken(apiSecurity, this.Email, this.Password);
 
-            if (token==null)
+            if (token == null)
             {
                 this.IsRunning = false;
                 this.IsEnabled = true;
@@ -134,7 +139,11 @@ namespace Lands.ViewModels
             this.Password = String.Empty;
         }
 
-        public ICommand RegisterCommand { get; }
+        private async void Register()
+        {
+            MainViewModel.getInstance().Register = new RegisterViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync( new RegisterPage() );
+        }
         #endregion
 
         #region Constructors

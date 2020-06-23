@@ -25,6 +25,9 @@ namespace Lands.Droid
             
             CachedImageRenderer.Init(true);
 
+            //
+            Plugin.CurrentActivity.CrossCurrentActivity.Current.Activity = this;
+            
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

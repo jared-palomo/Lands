@@ -15,6 +15,8 @@ namespace Lands.ViewModels
         public string Token { get; set; }
         public string TokenType { get; set; }
         public ObservableCollection<MenuItemViewModel> Menus { get; set; }
+
+
         #endregion
 
         #region ViewModels
@@ -23,6 +25,8 @@ namespace Lands.ViewModels
         public LandsViewModel Lands { get; set; }
 
         public LandViewModel Land { get; set; }
+
+        public RegisterViewModel Register { get; set; }
         #endregion
 
         #region Constructors

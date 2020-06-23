@@ -9,7 +9,12 @@
     <Application.Resources>
         <!--Application Resourse Dictionary -->
         <ResourceDictionary>
-            <infra:InstanceLocator x:Key="Locator" />
+            <!-- Parameters -->
+            <infra:InstanceLocator x:Key="Locator"/>
+
+            <!-- Parameters -->
+            <x:String x:Key="APILands">http://restcountries.eu</x:String>
+            <x:String x:Key="APISecurity">http://APILandsNet.somee.com/</x:String>
         </ResourceDictionary>
         
     </Application.Resources>
