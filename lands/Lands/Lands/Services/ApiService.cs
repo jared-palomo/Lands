@@ -51,7 +51,7 @@ namespace Lands.Services
                 var client = new HttpClient();
                 client.BaseAddress = new Uri(urlBase);
 
-                var Response = await client.PostAsync("Token",
+                var Response = await client.PostAsync("/Token",
                     new StringContent(string.Format(
                         "grant_type=password&username={0}&password={1}",
                         username, password),

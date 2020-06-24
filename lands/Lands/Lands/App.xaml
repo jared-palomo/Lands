@@ -14,7 +14,7 @@
 
             <!-- Parameters -->
             <x:String x:Key="APILands">http://restcountries.eu</x:String>
-            <x:String x:Key="APISecurity">http://APILandsNet.somee.com/</x:String>
+            <x:String x:Key="APISecurity">http://APILandsNet.somee.com</x:String>
         </ResourceDictionary>
         
     </Application.Resources>

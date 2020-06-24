@@ -215,7 +215,7 @@
             var apiSecurity = Application.Current.Resources["APISecurity"].ToString();
             var response = await this.apiService.Post(
                 apiSecurity,
-                "api",
+                "/api",
                 "/Users",
                 user);
 

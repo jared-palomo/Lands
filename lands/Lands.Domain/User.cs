@@ -55,7 +55,7 @@
                 }
 
                 return string.Format(
-                    "http://apilandsnet.somee.com/{0}",
+                    "http://apilandsnet.somee.com{0}",
                     ImagePath.Substring(1));
             }
         }
