@@ -12,9 +12,11 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using Lands.API.Helpers;
 using Lands.Domain;
+using Newtonsoft.Json.Linq;
 
 namespace Lands.API.Controllers
 {
+    [RoutePrefix("api/Users")]
     public class UsersController : ApiController
     {
         private DataContext db = new DataContext();
@@ -25,11 +27,27 @@ namespace Lands.API.Controllers
             return db.Users;
         }
 
-        // GET: api/Users/5
+        // POST: api/Users/{email}
+        [HttpPost]
+        [Route("GetUserByEmail")]
         [ResponseType(typeof(User))]
-        public async Task<IHttpActionResult> GetUser(int id)
+        public async Task<IHttpActionResult> GetUserByEmail(JObject form)
         {
-            User user = await db.Users.FindAsync(id);
+            var email = string.Empty;
+            dynamic jsonObject = form;
+
+            try
+            {
+                email = jsonObject.Email.Value;
+            }
+            catch
+            {
+                return BadRequest("Missing Parameter.");
+            }
+            
+
+            User user = await db.Users.Where( u => u.Email.ToLower().Equals(email.ToLower()) ).FirstOrDefaultAsync();
+            
             if (user == null)
             {
                 return NotFound();
