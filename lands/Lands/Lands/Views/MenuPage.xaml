@@ -13,6 +13,12 @@
         <StackLayout Padding="5, 20, 5, 5 ">
             <Image Source="logo_onu"
                    WidthRequest="100"/>
+
+            <Label Text="{Binding User.FullName, StringFormat='{0}'}"
+                   TextColor="White"
+                   FontSize="Large"
+                   FontAttributes="Bold" />
+
             <ListView ItemsSource="{Binding Menus}"
                       HasUnevenRows="True"
                       SeparatorVisibility="None">

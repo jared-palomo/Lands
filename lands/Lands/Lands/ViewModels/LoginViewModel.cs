@@ -116,9 +116,16 @@ namespace Lands.ViewModels
                 return;
             }
 
+            var user = await this.apiService.GetUserByEmail(
+                apiSecurity, 
+                "/api", 
+                "/Users/GetUserByEmail", 
+                this.Email);
+
             var mainViewModel = MainViewModel.getInstance();
             mainViewModel.Token = token.AccessToken;
             mainViewModel.TokenType = token.TokenType;
+            mainViewModel.User = user;
 
             if (this.IsRemember)
             {

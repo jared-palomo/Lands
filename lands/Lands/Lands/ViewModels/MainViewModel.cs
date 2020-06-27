@@ -1,4 +1,5 @@
-﻿using Lands.Helpers;
+﻿using Lands.Domain;
+using Lands.Helpers;
 using Lands.Models;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace Lands.ViewModels
         public string TokenType { get; set; }
         public ObservableCollection<MenuItemViewModel> Menus { get; set; }
 
-
+        public User User { get; set; }
         #endregion
 
         #region ViewModels
