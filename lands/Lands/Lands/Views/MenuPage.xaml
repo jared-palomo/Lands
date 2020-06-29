@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin" 
              xmlns:i18n="clr-namespace:Lands.Helpers"
              Title="{i18n:Translate Menu}"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
@@ -11,13 +12,18 @@
              x:Class="Lands.Views.MenuPage">
     <ContentPage.Content>
         <StackLayout Padding="5, 20, 5, 5 ">
-            <Image Source="logo_onu"
-                   WidthRequest="100"/>
+
+            <controls:CircleImage 
+                    Aspect="AspectFill"
+                    HeightRequest="150"
+                    Source="{Binding User.ImageFullPath}">
+            </controls:CircleImage>
 
             <Label Text="{Binding User.FullName, StringFormat='{0}'}"
                    TextColor="White"
                    FontSize="Large"
-                   FontAttributes="Bold" />
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
 
             <ListView ItemsSource="{Binding Menus}"
                       HasUnevenRows="True"
