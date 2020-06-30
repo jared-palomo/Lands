@@ -10,6 +10,8 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using Lands.Helpers;
 using Lands.Models;
+using System.IO;
+using Lands.Domain;
 
 namespace Lands.ViewModels
 {
@@ -122,13 +124,22 @@ namespace Lands.ViewModels
                 "/Users/GetUserByEmail", 
                 this.Email);
 
+            var userLocal = Converter.ToUserLocal(user);
+
             var mainViewModel = MainViewModel.getInstance();
             mainViewModel.Token = token.AccessToken;
             mainViewModel.TokenType = token.TokenType;
-            mainViewModel.User = user;
+            mainViewModel.User = userLocal;
 
             if (this.IsRemember)
             {
+                //Save LocalUser in SQLite
+                using (var conn = new SQLite.SQLiteConnection(App.root_db))
+                {
+                    conn.CreateTable<UserLocal>();
+                    conn.Insert(userLocal);
+                }
+
                 //Persistencia
                 Settings.Token = token.AccessToken;
                 Settings.TokenType = token.TokenType;
@@ -157,6 +168,7 @@ namespace Lands.ViewModels
         public LoginViewModel()
         {
             this.apiService = new ApiService();
+
             this.IsRemember = true;
             this.IsEnabled = true;
         }

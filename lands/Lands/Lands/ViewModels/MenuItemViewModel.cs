@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using Lands.Domain;
 using Lands.Helpers;
 using Lands.Views;
 using System;
@@ -35,6 +36,11 @@ namespace Lands.ViewModels
                 var mainViewModel = MainViewModel.getInstance();
                 mainViewModel.Token = string.Empty;
                 mainViewModel.TokenType = string.Empty;
+
+                using (var conn = new SQLite.SQLiteConnection(App.root_db) )
+                {
+                    conn.DeleteAll<UserLocal>();
+                }
 
                 Application.Current.MainPage = new NavigationPage( new LoginPage() );
             }

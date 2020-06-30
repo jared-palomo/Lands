@@ -7,7 +7,10 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using FFImageLoading.Forms.Platform;
+using Android.Graphics;
 //using Plugin.Permissions;
+using System.IO;
+
 namespace Lands.Droid
 {
     [Activity(
@@ -32,8 +35,14 @@ namespace Lands.Droid
 
             //
             Plugin.CurrentActivity.CrossCurrentActivity.Current.Activity = this;
-            
-            LoadApplication(new App());
+
+            //Set DB root
+            string dbName = "Lands.db3";
+            string dbBinder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            string dbRoot = System.IO.Path.Combine(dbBinder, dbName);
+
+            //Initialized Builder
+            LoadApplication(new App(dbRoot));
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

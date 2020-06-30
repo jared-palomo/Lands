@@ -26,7 +26,13 @@ namespace Lands.iOS
             
             CachedImageRenderer.Init();
 
-            LoadApplication(new App());
+            //Set DB root
+            string dbName = "Lands.db3";
+            string dbBinder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            string dbRoot = System.IO.Path.Combine(dbBinder, dbName);
+
+            //Initialized Builder
+            LoadApplication(new App(dbRoot));
 
             return base.FinishedLaunching(app, options);
         }
