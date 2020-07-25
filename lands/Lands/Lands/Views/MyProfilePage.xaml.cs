@@ -10,14 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace Lands.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MasterPage : MasterDetailPage
+    public partial class MyProfilePage : ContentPage
     {
-        public MasterPage()
+        public MyProfilePage()
         {
             InitializeComponent();
-            App.Navigator = Navigator;
-
-            App.Master = this;
         }
     }
 }

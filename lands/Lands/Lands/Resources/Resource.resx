@@ -249,20 +249,20 @@
   <data name="Menu" xml:space="preserve">
     <value>Menu</value>
   </data>
-  <data name="Logout" xml:space="preserve">
-    <value>Logout</value>
-  </data>
   <data name="MyProfile" xml:space="preserve">
-    <value>My profile</value>
+    <value>My Profile</value>
   </data>
   <data name="Stadistics" xml:space="preserve">
-    <value>Stadistics</value>
+    <value>Statics</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
   </data>
   <data name="RegisterTitle" xml:space="preserve">
     <value>Register New User</value>
   </data>
   <data name="ChangeImage" xml:space="preserve">
-    <value>Touch the image to chage it</value>
+    <value>Touch the image to change it</value>
   </data>
   <data name="FirstNameLabel" xml:space="preserve">
     <value>First Name</value>

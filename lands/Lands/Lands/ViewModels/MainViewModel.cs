@@ -28,6 +28,7 @@ namespace Lands.ViewModels
         public LandViewModel Land { get; set; }
 
         public RegisterViewModel Register { get; set; }
+        public MyProfileViewModel MyProfile { get; set; }
         #endregion
 
         #region Constructors

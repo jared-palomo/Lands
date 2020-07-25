@@ -142,7 +142,7 @@ namespace Lands.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Touch the image to chage it.
+        ///   Busca una cadena traducida similar a Touch the image to change it.
         /// </summary>
         public static string ChangeImage {
             get {
@@ -529,7 +529,7 @@ namespace Lands.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a My profile.
+        ///   Busca una cadena traducida similar a My Profile.
         /// </summary>
         public static string MyProfile {
             get {
@@ -754,7 +754,7 @@ namespace Lands.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Stadistics.
+        ///   Busca una cadena traducida similar a Statics.
         /// </summary>
         public static string Stadistics {
             get {

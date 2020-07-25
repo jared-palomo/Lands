@@ -28,6 +28,9 @@ namespace Lands.ViewModels
         #region Methods
         private void Navigate()
         {
+            //Ocultar Menú
+            App.Master.IsPresented = false;
+
             if (this.PageName == "LoginPage")
             {
                 Settings.Token = string.Empty;
@@ -43,6 +46,11 @@ namespace Lands.ViewModels
                 }
 
                 Application.Current.MainPage = new NavigationPage( new LoginPage() );
+            }
+            else if(this.PageName == "MyProfilePage")
+            {
+                MainViewModel.getInstance().MyProfile = new MyProfileViewModel();
+                App.Navigator.PushAsync( new MyProfilePage() );
             }
         }
         #endregion
